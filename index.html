@@ -11,9 +11,33 @@
    <div class="main">
        <h1>Contador</h1>
        <h2>Informe uma data</h2>
-       <input type="text" placeholder="DD/MM/AAAA" class="main-label">
-       <button class="contador">Iniciar contagem</button>
+       <input type="text" placeholder="DD/MM/AAAA" id="main-label">
+       <a href="contador.html">
+        <button class="contador" onclick="captureData()"> 
+            Iniciar contagem
+        </button>
+       </a>
+
    </div> 
+   <script>
+       function captureData(){
+            let date = Date.parse(document.getElementById("main-label").value);
+
+            let data = Date.parse(new Date());
+            // let dia = String(data.getDate()).padStart(2, '0');
+            // let mes = String(data.getMonth() + 1).padStart(2, '0');
+            // let ano = data.getFullYear();
+            // let dataAtual = (dia + '/' + mes + '/' + ano).value;
+
+            let diasRestantes = date - data;
+
+            diasRestantes = (diasRestantes / (1000*60*60*24));
+            
+
+            alert(diasRestantes)
+
+       }
+   </script>
 
 </body>
 </html>

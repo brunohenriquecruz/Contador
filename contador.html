@@ -10,33 +10,40 @@
 <body>
     <header id="header">
         <div class="logo">Contador</div>
-        <div class="btn"> <button class="contador">Reiniciar</button> </div>
+        <div class="btn"> <button class="contador" onclick="startTimer()">Reiniciar</button> </div>
     </header>
     <main >
         <h1 class="main-h1">Faltam</h1>
         <p id="timer" style="color: white"></p>
-
+        <div class="spantime">
+            <span>Dias</span>
+            <span>Horas</span>
+            <span>Minutos</span>
+            <span>Segundos</span>
+        </div>
     </main>
 	<script language="javaScript">	
        function startTimer(duration, display) {
             var timer = duration, days, hour, minutes, seconds;
             setInterval(function () {
-                days = 2;
-                hour = 3;
+                days = parseInt(timer / 24, 10);
+                hour = parseInt(timer / 60, 10);
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
+                days = days < 10 ? "0" + days : days;
+                hour = hour < 10 ? "0" + hour : hour;
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
-                display.textContent = days + hour + minutes  + seconds;
+                display.textContent = days + " " + hour + " " + minutes + " " + seconds;
                 if (--timer < 0) {
                     timer = duration;
                 }
             }, 1000);
         }
-        window.onload = function () {
-            var duration = 60 * 5; // Converter para segundos
-                display = document.querySelector('#timer'); // selecionando o timer
-            startTimer(duration, display); // iniciando o timer
+        window.onclick = () => {
+            var duration = 60 * 1;
+                display = document.querySelector('#timer'); 
+            startTimer(duration, display);
         };
     </script>	
 
