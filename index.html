@@ -22,17 +22,9 @@
    <script>
        function captureData(){
             let date = Date.parse(document.getElementById("main-label").value);
-
             let data = Date.parse(new Date());
-            // let dia = String(data.getDate()).padStart(2, '0');
-            // let mes = String(data.getMonth() + 1).padStart(2, '0');
-            // let ano = data.getFullYear();
-            // let dataAtual = (dia + '/' + mes + '/' + ano).value;
-
             let diasRestantes = date - data;
-
             diasRestantes = (diasRestantes / (1000*60*60*24));
-            
 
             alert(diasRestantes)
 
